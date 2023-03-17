@@ -19,7 +19,8 @@ namespace CleanMovie.Application
 
         public Movie CreateMovie(Movie newMovie)
         {
-            throw new NotImplementedException();
+            _movieRepository.CreateMovie(newMovie);
+            return newMovie;
         }
 
         public List<Movie> GetAllMovies()

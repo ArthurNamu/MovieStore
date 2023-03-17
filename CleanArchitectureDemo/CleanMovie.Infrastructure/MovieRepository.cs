@@ -1,4 +1,5 @@
 ﻿using CleanMovie.Application;
+using CleanMovie.Infrastructure.Data;
 using CleanMovieDomain;
 using System;
 using System.Collections.Generic;
@@ -15,15 +16,23 @@ namespace CleanMovie.Infrastructure
             new Movie{Id = 1, Name = "Passion Of Christ"},
             new Movie{Id = 2, Name = "Home Alone"},
         };
+        private readonly MovieDbContext _context;
 
+        public MovieRepository(MovieDbContext movieDbContext)
+        {
+            _context = movieDbContext;
+        }
         public Movie CreateMovie(Movie newMovie)
         {
-            throw new NotImplementedException();
+           _context.Movies.Add(newMovie);
+            _context.SaveChanges();
+
+            return newMovie;
         }
 
         public List<Movie> GetAllMovies()
         {
-            return  movies;
+            return  _context.Movies.ToList();
         }
 
         public Movie GetById(int id)
