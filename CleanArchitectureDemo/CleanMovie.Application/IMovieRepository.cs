@@ -10,5 +10,7 @@ namespace CleanMovie.Application
     public interface IMovieRepository
     {
         List<Movie> GetAllMovies();
+        Movie GetById(int id);
+        Movie CreateMovie(Movie newMovie);
     }
 }

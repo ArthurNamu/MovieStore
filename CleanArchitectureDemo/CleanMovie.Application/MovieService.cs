@@ -16,11 +16,22 @@ namespace CleanMovie.Application
         {
             _movieRepository = movieRepository;
         }
+
+        public Movie CreateMovie(Movie newMovie)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Movie> GetAllMovies()
         {
             var movies = _movieRepository.GetAllMovies();
 
             return movies;
+        }
+
+        public Movie GetMovie(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
