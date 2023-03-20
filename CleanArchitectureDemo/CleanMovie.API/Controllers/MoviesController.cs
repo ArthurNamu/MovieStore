@@ -1,16 +1,17 @@
 ﻿using CleanMovie.Application;
+using CleanMovie.Application.Security;
 using CleanMovieDomain;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanMovie.API.Controllers
 {
+   [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class MoviesController : ControllerBase
     {
         private readonly IMovieService _movieService;
-
         public MoviesController(IMovieService movieService)
         {
             _movieService = movieService;
